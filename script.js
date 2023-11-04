@@ -1,4 +1,5 @@
 (function () {
+    const build = document.querySelector("meta[name='build']").content;
     const tests = {
         supplyAmmoNormal: {
             name: 'Supply/Ammo Drop',
@@ -164,7 +165,7 @@
             console.log(answer, randSound)
 
             try {
-                audioClip.attr("src", './audio/' + randSound);
+                audioClip.attr("src", `./audio/${randSound}?v=${build}`);
                 audio[0].pause();
                 audio[0].load();
                 audio[0].oncanplaythrough = audio[0].play();
@@ -198,7 +199,7 @@
                 referenceDiv.append(`
                     <div class='sound-ref'>
                         <h6>${test.name} ${iconsHtml.join("")}</h6>
-                        <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}"></audio>
+                        <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}?v=${build}"></audio>
                     </div>
                 `)
             }
@@ -209,9 +210,9 @@
 
             console.log(selected, '===', answer)
             if (selected === answer) {
-                alert('Correct')
+                alert('Correct!')
             } else {
-                alert('Wrong')
+                alert('Wrong. That was a ' + tests[answer].name)
             }
 
             newTest()
