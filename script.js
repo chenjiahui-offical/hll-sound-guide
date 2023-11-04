@@ -150,12 +150,14 @@
 
         function newTest() {
             const randKey = randChoice(Object.keys(tests))
-            if (randKey === answer) {
-                return newTest()
+            if (randKey === answer || tests[randKey].name === "break") {
+                newTest()
+                return
             }
             answer = randKey
             const randSound = randChoice(tests[answer].sounds)
             if (!randSound) {
+                newTest()
                 return
             }
 
