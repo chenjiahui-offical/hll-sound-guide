@@ -274,7 +274,6 @@ html.dark .progress-bar {
     }
 }
 
-
 .sound-ref {
     margin-bottom: 15px
 }
@@ -287,4 +286,7 @@ html.dark .progress-bar {
 }
 .c0 {
     opacity: 0.15;
+}
+.name {
+    min-width:185px
 }

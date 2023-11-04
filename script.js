@@ -191,7 +191,7 @@
                       <input class="form-check-input sound-radio" type="radio" name="soundType" id="${key}">
                       <label class="form-check-label" for="${key}">
                         <div class="icons" style="width:80px;display:inline-block;" align="right">${iconsHtml.join("")}</div> 
-                        <div style="display:inline-block;min-width:200px">${test.name}</div>
+                        <div class="name" style="display:inline-block;">${test.name}</div>
                         <div class="pass c0" style="display:inline-block;">0</div>
                         <div class="fail c0" style="display:inline-block;">0</div>
                       </label>
