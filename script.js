@@ -56,7 +56,6 @@
                 'ger bomb.mp3',
                 'us bomb.mp3',
             ]
-
         },
         bombingRunBrit: {
             name: 'British Bombing Run',
@@ -90,7 +89,7 @@
         },
         precisionBrit: {
             name: 'British Precision Strike',
-            icons: ['british', 'german', 'soviet', 'usa'],
+            icons: ['british'],
             sounds: [
                 'brit precision.mp3'
             ]
