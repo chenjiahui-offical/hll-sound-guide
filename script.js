@@ -170,8 +170,7 @@
                 console.error(e)
             }
 
-
-            $("input[name='soundType']").set(":checked", false)
+            $("input[name='soundType']").prop("checked", false)
         }
 
         Object.keys(tests).forEach(key => {
