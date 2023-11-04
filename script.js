@@ -21,7 +21,7 @@
             ]
         },
 
-        br1:{},
+        br1:{name:'break'},
 
         airheadStandard: {
             name: 'Airhead',
@@ -40,7 +40,7 @@
             ]
         },
 
-        br2:{},
+        br2:{name:'break'},
 
         recon: {
             name: 'Recon',
@@ -53,7 +53,7 @@
             ]
         },
 
-        br3:{},
+        br3:{name:'break'},
 
         bombingRunNormal: {
             name: 'Bombing Run',
@@ -78,7 +78,7 @@
             ]
         },
 
-        br4:{},
+        br4:{name:'break'},
 
         precisionUsSov: {
             name: 'Precision Strike',
@@ -103,7 +103,7 @@
             ]
         },
 
-        br5:{},
+        br5:{name:'break'},
 
         strafingRun: {
             name: 'Strafing Run',
@@ -124,6 +124,7 @@
     }
 
     function randChoice(arr) {
+        arr = arr || []
         return arr[Math.floor(Math.random() * arr.length)]
     }
 
@@ -150,49 +151,56 @@
         function newTest() {
             const randKey = randChoice(Object.keys(tests))
             if (randKey === answer) {
-                newTest()
+                return newTest()
             }
             answer = randKey
             const randSound = randChoice(tests[answer].sounds)
+            if (!randSound) {
+                return
+            }
 
             console.log(answer, randSound)
 
-            audioClip.attr("src", './audio/' + randSound);
-            audio[0].pause();
-            audio[0].load();
-            audio[0].oncanplaythrough = audio[0].play();
+            try {
+                audioClip.attr("src", './audio/' + randSound);
+                audio[0].pause();
+                audio[0].load();
+                audio[0].oncanplaythrough = audio[0].play();
+            } catch (e) {
+                console.error(e)
+            }
+
 
             $("input[name='soundType']").set(":checked", false)
         }
 
         Object.keys(tests).forEach(key => {
-            if (key.startsWith("br")) {
+            const test = tests[key];
+            if (test.name === "break") {
                 optionsDiv.append("<hr>")
                 referenceDiv.append("<hr>")
-                return
+            } else {
+                const iconsHtml = []
+                test.icons.forEach(icon => {
+                    iconsHtml.push(`<img src='./img/${icon}.png' width="20">`)
+                })
+                optionsDiv.append(`
+                    <div class="form-check">
+                      <input class="form-check-input sound-radio" type="radio" name="soundType" id="${key}">
+                      <label class="form-check-label" for="${key}">
+                        <div class="icons" style="width:80px;display:inline-block;" align="right">${iconsHtml.join("")}</div> ${test.name} 
+                      </label>
+                    </div>
+                `)
+
+                const randSound = randChoice(tests[key].sounds)
+                referenceDiv.append(`
+                    <div class='sound-ref'>
+                        <h6>${test.name} ${iconsHtml.join("")}</h6>
+                        <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}"></audio>
+                    </div>
+                `)
             }
-
-            const test = tests[key];
-            const iconsHtml = []
-            test.icons.forEach(icon => {
-                iconsHtml.push(`<img src='./img/${icon}.png' width="20">`)
-            })
-            optionsDiv.append(`
-                <div class="form-check">
-                  <input class="form-check-input sound-radio" type="radio" name="soundType" id="${key}">
-                  <label class="form-check-label" for="${key}">
-                    <div class="icons" style="width:80px;display:inline-block;" align="right">${iconsHtml.join("")}</div> ${test.name} 
-                  </label>
-                </div>
-            `)
-
-            const randSound = randChoice(tests[key].sounds)
-            referenceDiv.append(`
-                <div class='sound-ref'>
-                    <h6>${test.name} ${iconsHtml.join("")}</h6>
-                    <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}"></audio>
-                </div>
-            `)
         })
 
         btnSubmit.click(function () {
