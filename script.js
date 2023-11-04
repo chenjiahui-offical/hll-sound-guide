@@ -168,6 +168,7 @@
         Object.keys(tests).forEach(key => {
             if (key.startsWith("br")) {
                 optionsDiv.append("<hr>")
+                referenceDiv.append("<hr>")
                 return
             }
 
@@ -188,7 +189,7 @@
             const randSound = randChoice(tests[key].sounds)
             referenceDiv.append(`
                 <div class='sound-ref'>
-                    <h5>${test.name} ${iconsHtml.join("")}</h5>
+                    <h6>${test.name} ${iconsHtml.join("")}</h6>
                     <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}"></audio>
                 </div>
             `)
