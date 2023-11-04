@@ -21,6 +21,8 @@
             ]
         },
 
+        br1:{},
+
         airheadStandard: {
             name: 'Airhead',
             icons: ['german', 'soviet', 'usa'],
@@ -38,6 +40,8 @@
             ]
         },
 
+        br2:{},
+
         recon: {
             name: 'Recon',
             icons: ['british', 'german', 'soviet', 'usa'],
@@ -48,6 +52,8 @@
                 'us recon.mp3',
             ]
         },
+
+        br3:{},
 
         bombingRunNormal: {
             name: 'Bombing Run',
@@ -72,6 +78,8 @@
             ]
         },
 
+        br4:{},
+
         precisionUsSov: {
             name: 'Precision Strike',
             icons: ['soviet', 'usa'],
@@ -94,6 +102,8 @@
                 'brit precision.mp3'
             ]
         },
+
+        br5:{},
 
         strafingRun: {
             name: 'Strafing Run',
@@ -156,6 +166,11 @@
         }
 
         Object.keys(tests).forEach(key => {
+            if (key.startsWith("br")) {
+                optionsDiv.append("<hr>")
+                return
+            }
+
             const test = tests[key];
             const iconsHtml = []
             test.icons.forEach(icon => {
