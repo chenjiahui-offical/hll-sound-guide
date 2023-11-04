@@ -278,3 +278,13 @@ html.dark .progress-bar {
 .sound-ref {
     margin-bottom: 15px
 }
+
+.pass {
+    color:greenyellow;
+}
+.fail {
+    color:red;
+}
+.c0 {
+    opacity: 0.15;
+}

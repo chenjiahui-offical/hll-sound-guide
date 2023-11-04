@@ -187,10 +187,13 @@
                     iconsHtml.push(`<img src='./img/${icon}.png' width="20">`)
                 })
                 optionsDiv.append(`
-                    <div class="form-check">
+                    <div class='${key}' class="form-check">
                       <input class="form-check-input sound-radio" type="radio" name="soundType" id="${key}">
                       <label class="form-check-label" for="${key}">
-                        <div class="icons" style="width:80px;display:inline-block;" align="right">${iconsHtml.join("")}</div> ${test.name} 
+                        <div class="icons" style="width:80px;display:inline-block;" align="right">${iconsHtml.join("")}</div> 
+                        <div style="display:inline-block;min-width:200px">${test.name}</div>
+                        <div class="pass c0" style="display:inline-block;">0</div>
+                        <div class="fail c0" style="display:inline-block;">0</div>
                       </label>
                     </div>
                 `)
@@ -207,12 +210,21 @@
 
         btnSubmit.click(function () {
             const selected = $("input[name='soundType']:checked").attr('id');
+            const test = tests[answer];
+            if (!test.pass) test.pass = 0
+            if (!test.fail) test.fail = 0
 
             console.log(selected, '===', answer)
             if (selected === answer) {
                 alert('Correct!')
+
+                test.pass += 1
+                $(`.${answer} .pass`).text(test.pass).removeClass("c0")
             } else {
                 alert('Wrong. That was a ' + tests[answer].name)
+
+                test.fail += 1
+                $(`.${answer} .fail`).text(test.fail).removeClass("c0")
             }
 
             newTest()
