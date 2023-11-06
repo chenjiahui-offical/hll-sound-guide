@@ -27,17 +27,15 @@
         })
 
         function newTest() {
-            const randKey = randChoice(Object.keys(TESTS))
-            if (randKey === answer || TESTS[randKey].name === "break") {
-                newTest()
-                return
+            const choices = []
+            for (let key in TESTS) {
+                if (key !== answer && TESTS[key].name !== "break") {
+                    choices.push(key)
+                }
             }
-            answer = randKey
+            answer = randChoice(choices)
+
             const randSound = randChoice(TESTS[answer].sounds)
-            if (!randSound) {
-                newTest()
-                return
-            }
 
             console.log(answer, randSound)
 
@@ -91,14 +89,22 @@
             if (!test.pass) test.pass = 0
             if (!test.fail) test.fail = 0
 
+            const resultModal = $("#resultModal")
+            const resultTitle = $("#resultTitle")
+            const resultContent = $("#resultContent")
+
+            resultContent.html(`That was a ${test.name}.<div style="background-image:url('./img/${test.preview}');margin-top:15px;width:100%;height:250px;background-position:center;background-size:cover"></div>`)
+
             console.log(selected, '===', answer)
             if (selected === answer) {
-                alert('Correct!')
+                resultModal.addClass("correct").removeClass("wrong")
+                resultTitle.html(`<i class="bi bi-check-circle-fill" style="color:greenyellow"></i> Correct`)
 
                 test.pass += 1
                 $(`.${answer} .pass`).text(test.pass).removeClass("c0")
             } else {
-                alert('Wrong. That was a ' + TESTS[answer].name)
+                resultModal.removeClass("correct").addClass("wrong")
+                resultTitle.html(`<i class="bi bi bi-dash-circle" style="color:red"></i> Wrong`)
 
                 test.fail += 1
                 $(`.${answer} .fail`).text(test.fail).removeClass("c0")

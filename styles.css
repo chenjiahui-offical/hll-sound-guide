@@ -288,5 +288,12 @@ html.dark .progress-bar {
     opacity: 0.15;
 }
 .name {
-    min-width:185px
+    margin-right: 10px
+}
+
+.modal.correct .modal-content {
+    border: 1px solid green;
+}
+.modal.wrong .modal-content {
+    border: 1px solid darkred;
 }

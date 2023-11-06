@@ -19,7 +19,10 @@ title: Planes - HLL Sound Guide
                         Your browser does not support the audio element.
                     </audio>
                     <br>
-                    <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%">Submit</button>
+                    <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%"
+                            data-bs-toggle="modal" data-bs-target="#resultModal">
+                        Submit
+                    </button>
                     <div id="options" style="margin-bottom:15px"></div>
 
                     <small class="text-muted">Tips/Notes</small>
@@ -29,6 +32,7 @@ title: Planes - HLL Sound Guide
                         </small></li>
                         <li><small>
                             It's also very good if you can identify airhead planes without seeing the parachute no matter where you are.
+                            Once you hear it, tell the team to look up and find it.
                         </small></li>
                     </ul>
                 </div>
@@ -46,6 +50,7 @@ title: Planes - HLL Sound Guide
                             supplyAmmoNormal: {
                                 name: 'Supply/Ammo Drop',
                                 icons: ['german', 'soviet', 'usa'],
+                                preview: 'supplyAmmo.png',
                                 sounds: [
                                     'ger supply.mp3',
                                     'sov supply.mp3',
@@ -58,6 +63,7 @@ title: Planes - HLL Sound Guide
                             supplyAmmoBrit: {
                                 name: 'British Supply/Ammo Drop',
                                 icons: ['british'],
+                                preview: 'supplyAmmo.png',
                                 sounds: [
                                     'brit supply.mp3',
                                     'brit ammo.mp3',
@@ -69,6 +75,7 @@ title: Planes - HLL Sound Guide
                             airheadStandard: {
                                 name: 'Airhead',
                                 icons: ['german', 'soviet', 'usa'],
+                                preview: 'airhead.png',
                                 sounds: [
                                     'ger airhead.mp3',
                                     'sov airhead.mp3',
@@ -78,6 +85,7 @@ title: Planes - HLL Sound Guide
                             airheadBrit: {
                                 name: 'British Airhead',
                                 icons: ['british'],
+                                preview: 'airhead.png',
                                 sounds: [
                                     'brit airhead.mp3'
                                 ]
@@ -88,6 +96,7 @@ title: Planes - HLL Sound Guide
                             recon: {
                                 name: 'Recon',
                                 icons: ['british', 'german', 'soviet', 'usa'],
+                                preview: 'recon.png',
                                 sounds: [
                                     'brit recon.mp3',
                                     'ger recon.mp3',
@@ -101,6 +110,7 @@ title: Planes - HLL Sound Guide
                             bombingRunNormal: {
                                 name: 'Bombing Run',
                                 icons: ['german', 'usa'],
+                                preview: 'bombing_run.png',
                                 sounds: [
                                     'ger bomb.mp3',
                                     'us bomb.mp3',
@@ -109,6 +119,7 @@ title: Planes - HLL Sound Guide
                             bombingRunBrit: {
                                 name: 'British Bombing Run',
                                 icons: ['british'],
+                                preview: 'bombing_run.png',
                                 sounds: [
                                     'brit bomb.mp3',
                                 ]
@@ -116,6 +127,7 @@ title: Planes - HLL Sound Guide
                             bombingRunSov: {
                                 name: 'Soviet Katyusha Strike',
                                 icons: ['soviet'],
+                                preview: 'katyusha.jpg',
                                 sounds: [
                                     'sov bomb.mp3'
                                 ]
@@ -125,6 +137,7 @@ title: Planes - HLL Sound Guide
 
                             precisionUsSov: {
                                 name: 'Precision Strike',
+                                preview: 'strafe.png',
                                 icons: ['soviet', 'usa'],
                                 sounds: [
                                     'us precision.mp3',
@@ -133,6 +146,7 @@ title: Planes - HLL Sound Guide
                             },
                             precisionGer: {
                                 name: 'German Precision Stuka',
+                                preview: 'strafe.png',
                                 icons: ['german'],
                                 sounds: [
                                     'ger precision.mp3'
@@ -140,6 +154,7 @@ title: Planes - HLL Sound Guide
                             },
                             precisionBrit: {
                                 name: 'British Precision Strike',
+                                preview: 'strafe.png',
                                 icons: ['british'],
                                 sounds: [
                                     'brit precision.mp3'
@@ -151,6 +166,7 @@ title: Planes - HLL Sound Guide
                             strafingRun: {
                                 name: 'Strafing Run',
                                 icons: ['german', 'soviet', 'usa'],
+                                preview: 'strafe.png',
                                 sounds: [
                                     'ger strafe.mp3',
                                     'sov strafe.mp3',
@@ -159,6 +175,7 @@ title: Planes - HLL Sound Guide
                             },
                             strafingRunBrit: {
                                 name: 'British Strafing Run',
+                                preview: 'strafe.png',
                                 icons: ['british'],
                                 sounds: [
                                     'brit strafe.mp3',

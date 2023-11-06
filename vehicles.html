@@ -19,13 +19,16 @@ title: Vehicles - HLL Sound Guide
                         Your browser does not support the audio element.
                     </audio>
                     <br>
-                    <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%">Submit</button>
+                    <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%"
+                            data-bs-toggle="modal" data-bs-target="#resultModal">
+                        Submit
+                    </button>
                     <div id="options" style="margin-bottom:15px"></div>
 
                     <small class="text-muted">Tips/Notes</small>
                     <ul class="text-muted" style="margin-bottom: 0">
                         <li><small>
-                            Test
+                            Determine tank/vehicle type just from sound without even having to see it.
                         </small></li>
                     </ul>
                 </div>
@@ -39,8 +42,135 @@ title: Vehicles - HLL Sound Guide
                 <div class="card-body">
                     <div id="reference"></div>
                     <script>
-                        const TESTS = {
+                        const TESTS = {}
+                        const TESTS2 = {
+                            truckEng: {
+                                name: 'Truck',
+                                icons: ['german', 'usa'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            sovietTruck: {
+                                name: 'Soviet Truck',
+                                icons: ['soviet'],
+                                sounds: [
+                                    '',
+                                ]
+                            },
+                            britTruck: {
+                                name: 'British Truck',
+                                icons: ['british'],
+                                sounds: [
+                                    '',
+                                ]
+                            },
 
+                            jeepEng: {
+                                name: 'Jeep',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            halftrackEng: {
+                                name: 'Halftrack',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+
+                            br: {name:'break'},
+
+                            shermanHeavyEng: {
+                                name: 'Sherman 76/75 Heavy',
+                                icons: ['usa'],
+                                sounds: [
+                                    ''
+                                ]
+                            },
+                            shermanMedium: {
+                                name: 'Sherman Medium',
+                                icons: ['usa'],
+                                sounds: [
+                                    ''
+                                ]
+                            },
+                            pantherEng: {
+                                name: 'Panther Heavy',
+                                icons: ['german'],
+                                sounds: [
+                                    ''
+                                ]
+                            },
+                            tigerEng: {
+                                name: 'Tiger Heavy',
+                                icons: ['german'],
+                                sounds: [
+                                    ''
+                                ]
+                            },
+                            pz4Eng: {
+                                name: 'Panzer IV Medium',
+                                icons: ['german'],
+                                sounds: [
+                                    ''
+                                ]
+                            },
+
+                            br2: {name:'break'},
+
+                            lightTankEng: {
+                                name: 'Light Tank',
+                                icons: ['german', 'soviet', 'usa'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            britLightTank: {
+                                name: 'British Light Tank',
+                                icons: ['british'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            luchsFiring: {
+                                name: 'Luchs Firing Light',
+                                icons: ['german'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            reconTankEng: {
+                                name: 'Recon Tank',
+                                icons: ['german', 'usa'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            sovietReconTank: {
+                                name: 'Soviet Recon Tank',
+                                icons: ['soviet'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+                            britReconTank: {
+                                name: 'British Recon Tank',
+                                icons: ['british'],
+                                sounds: [
+                                    '',
+                                ],
+                            },
+
+                            // foo: {
+                            //     name: '',
+                            //     icons: ['british', 'german', 'soviet', 'usa'],
+                            //     sounds: [
+                            //         '',
+                            //     ],
+                            // },
                         }
                     </script>
                 </div>
