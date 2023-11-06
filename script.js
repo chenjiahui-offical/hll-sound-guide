@@ -1,128 +1,5 @@
 (function () {
     const build = document.querySelector("meta[name='build']").content;
-    const tests = {
-        supplyAmmoNormal: {
-            name: 'Supply/Ammo Drop',
-            icons: ['german', 'soviet', 'usa'],
-            sounds: [
-                'ger supply.mp3',
-                'sov supply.mp3',
-                'us supply.mp3',
-                'ger ammo.mp3',
-                'sov ammo.mp3',
-                'us ammo.mp3',
-            ],
-        },
-        supplyAmmoBrit: {
-            name: 'British Supply/Ammo Drop',
-            icons: ['british'],
-            sounds: [
-                'brit supply.mp3',
-                'brit ammo.mp3',
-            ]
-        },
-
-        br1:{name:'break'},
-
-        airheadStandard: {
-            name: 'Airhead',
-            icons: ['german', 'soviet', 'usa'],
-            sounds: [
-                'ger airhead.mp3',
-                'sov airhead.mp3',
-                'us airhead.mp3',
-            ]
-        },
-        airheadBrit: {
-            name: 'British Airhead',
-            icons: ['british'],
-            sounds: [
-                'brit airhead.mp3'
-            ]
-        },
-
-        br2:{name:'break'},
-
-        recon: {
-            name: 'Recon',
-            icons: ['british', 'german', 'soviet', 'usa'],
-            sounds: [
-                'brit recon.mp3',
-                'ger recon.mp3',
-                'sov recon.mp3',
-                'us recon.mp3',
-            ]
-        },
-
-        br3:{name:'break'},
-
-        bombingRunNormal: {
-            name: 'Bombing Run',
-            icons: ['german', 'usa'],
-            sounds: [
-                'ger bomb.mp3',
-                'us bomb.mp3',
-            ]
-        },
-        bombingRunBrit: {
-            name: 'British Bombing Run',
-            icons: ['british'],
-            sounds: [
-                'brit bomb.mp3',
-            ]
-        },
-        bombingRunSov: {
-            name: 'Soviet Katyusha Strike',
-            icons: ['soviet'],
-            sounds: [
-                'sov bomb.mp3'
-            ]
-        },
-
-        br4:{name:'break'},
-
-        precisionUsSov: {
-            name: 'Precision Strike',
-            icons: ['soviet', 'usa'],
-            sounds: [
-                'us precision.mp3',
-                'sov precision.mp3',
-            ]
-        },
-        precisionGer: {
-            name: 'German Precision Stuka',
-            icons: ['german'],
-            sounds: [
-                'ger precision.mp3'
-            ]
-        },
-        precisionBrit: {
-            name: 'British Precision Strike',
-            icons: ['british'],
-            sounds: [
-                'brit precision.mp3'
-            ]
-        },
-
-        br5:{name:'break'},
-
-        strafingRun: {
-            name: 'Strafing Run',
-            icons: ['german', 'soviet', 'usa'],
-            sounds: [
-                'ger strafe.mp3',
-                'sov strafe.mp3',
-                'us strafe.mp3',
-            ]
-        },
-        strafingRunBrit: {
-            name: 'British Strafing Run',
-            icons: ['british'],
-            sounds: [
-                'brit strafe.mp3',
-            ]
-        },
-    }
 
     function randChoice(arr) {
         arr = arr || []
@@ -150,13 +27,13 @@
         })
 
         function newTest() {
-            const randKey = randChoice(Object.keys(tests))
-            if (randKey === answer || tests[randKey].name === "break") {
+            const randKey = randChoice(Object.keys(TESTS))
+            if (randKey === answer || TESTS[randKey].name === "break") {
                 newTest()
                 return
             }
             answer = randKey
-            const randSound = randChoice(tests[answer].sounds)
+            const randSound = randChoice(TESTS[answer].sounds)
             if (!randSound) {
                 newTest()
                 return
@@ -176,8 +53,8 @@
             $("input[name='soundType']").prop("checked", false)
         }
 
-        Object.keys(tests).forEach(key => {
-            const test = tests[key];
+        Object.keys(TESTS).forEach(key => {
+            const test = TESTS[key];
             if (test.name === "break") {
                 optionsDiv.append("<hr>")
                 referenceDiv.append("<hr>")
@@ -198,7 +75,7 @@
                     </div>
                 `)
 
-                const randSound = randChoice(tests[key].sounds)
+                const randSound = randChoice(TESTS[key].sounds)
                 referenceDiv.append(`
                     <div class='sound-ref'>
                         <h6>${test.name} ${iconsHtml.join("")}</h6>
@@ -210,7 +87,7 @@
 
         btnSubmit.click(function () {
             const selected = $("input[name='soundType']:checked").attr('id');
-            const test = tests[answer];
+            const test = TESTS[answer];
             if (!test.pass) test.pass = 0
             if (!test.fail) test.fail = 0
 
@@ -221,7 +98,7 @@
                 test.pass += 1
                 $(`.${answer} .pass`).text(test.pass).removeClass("c0")
             } else {
-                alert('Wrong. That was a ' + tests[answer].name)
+                alert('Wrong. That was a ' + TESTS[answer].name)
 
                 test.fail += 1
                 $(`.${answer} .fail`).text(test.fail).removeClass("c0")

@@ -1,14 +1,17 @@
 ---
 layout: default
-title: HLL Sound Guide
+title: Planes - HLL Sound Guide
 ---
+
+<div class="container-fluid" style="height:200px; background-image:url('./planes.jpg');background-position: center; margin-bottom: 1.5em; filter: blur(1px)">
+</div>
 
 <div class="container">
     <div class="row">
         <div class="col col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Sound Test</h4>
+                    <h4>Planes Test</h4>
                 </div>
                 <div class="card-body">
                     <audio id="audio" controls style="margin-bottom: 15px; width: 100%;">
@@ -17,17 +20,152 @@ title: HLL Sound Guide
                     </audio>
                     <br>
                     <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%">Submit</button>
-                    <div id="options"></div>
+                    <div id="options" style="margin-bottom:15px"></div>
+
+                    <small class="text-muted">Tips/Notes</small>
+                    <ul class="text-muted" style="margin-bottom: 0">
+                        <li><small>
+                            For best results in-game, try to guess as quickly as possible (before the bombs or bullets hit). TODO: Redo strafing run sounds.
+                        </small></li>
+                        <li><small>
+                            It's also very good if you can identify airhead planes without seeing the parachute no matter where you are.
+                        </small></li>
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="col col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Sound Reference</h4>
+                    <h4>Planes Reference</h4>
                 </div>
                 <div class="card-body">
                     <div id="reference"></div>
+                    <script>
+                        const TESTS = {
+                            supplyAmmoNormal: {
+                                name: 'Supply/Ammo Drop',
+                                icons: ['german', 'soviet', 'usa'],
+                                sounds: [
+                                    'ger supply.mp3',
+                                    'sov supply.mp3',
+                                    'us supply.mp3',
+                                    'ger ammo.mp3',
+                                    'sov ammo.mp3',
+                                    'us ammo.mp3',
+                                ],
+                            },
+                            supplyAmmoBrit: {
+                                name: 'British Supply/Ammo Drop',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit supply.mp3',
+                                    'brit ammo.mp3',
+                                ]
+                            },
+
+                            br1:{name:'break'},
+
+                            airheadStandard: {
+                                name: 'Airhead',
+                                icons: ['german', 'soviet', 'usa'],
+                                sounds: [
+                                    'ger airhead.mp3',
+                                    'sov airhead.mp3',
+                                    'us airhead.mp3',
+                                ]
+                            },
+                            airheadBrit: {
+                                name: 'British Airhead',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit airhead.mp3'
+                                ]
+                            },
+
+                            br2:{name:'break'},
+
+                            recon: {
+                                name: 'Recon',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'brit recon.mp3',
+                                    'ger recon.mp3',
+                                    'sov recon.mp3',
+                                    'us recon.mp3',
+                                ]
+                            },
+
+                            br3:{name:'break'},
+
+                            bombingRunNormal: {
+                                name: 'Bombing Run',
+                                icons: ['german', 'usa'],
+                                sounds: [
+                                    'ger bomb.mp3',
+                                    'us bomb.mp3',
+                                ]
+                            },
+                            bombingRunBrit: {
+                                name: 'British Bombing Run',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit bomb.mp3',
+                                ]
+                            },
+                            bombingRunSov: {
+                                name: 'Soviet Katyusha Strike',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'sov bomb.mp3'
+                                ]
+                            },
+
+                            br4:{name:'break'},
+
+                            precisionUsSov: {
+                                name: 'Precision Strike',
+                                icons: ['soviet', 'usa'],
+                                sounds: [
+                                    'us precision.mp3',
+                                    'sov precision.mp3',
+                                ]
+                            },
+                            precisionGer: {
+                                name: 'German Precision Stuka',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger precision.mp3'
+                                ]
+                            },
+                            precisionBrit: {
+                                name: 'British Precision Strike',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit precision.mp3'
+                                ]
+                            },
+
+                            br5:{name:'break'},
+
+                            strafingRun: {
+                                name: 'Strafing Run',
+                                icons: ['german', 'soviet', 'usa'],
+                                sounds: [
+                                    'ger strafe.mp3',
+                                    'sov strafe.mp3',
+                                    'us strafe.mp3',
+                                ]
+                            },
+                            strafingRunBrit: {
+                                name: 'British Strafing Run',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit strafe.mp3',
+                                ]
+                            },
+                        }
+                    </script>
                 </div>
             </div>
         </div>
