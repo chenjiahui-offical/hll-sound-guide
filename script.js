@@ -93,7 +93,7 @@
                     <div class='sound-ref'>
                         <h6>${test.name} ${iconsHtml.join("")}</h6>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6" ${randSound ? '' : 'hidden'}>
                                 <small ${hidden}>Driving</small><br ${hidden}>
                                 <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}?v=${build}"></audio>
                             </div>
