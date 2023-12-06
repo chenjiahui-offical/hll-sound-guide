@@ -26,7 +26,7 @@
             btnSubmit.attr("disabled", !selected)
         })
 
-        function newTest() {
+        function newTest(play) {
             const choices = []
             for (let key in TESTS) {
                 if (key !== answer && TESTS[key].name !== "break") {
@@ -55,7 +55,6 @@
             const test = TESTS[key];
             if (test.name === "break") {
                 optionsDiv.append("<hr>")
-                referenceDiv.append("<hr>")
             } else {
                 const iconsHtml = []
                 test.icons.forEach(icon => {
@@ -72,16 +71,41 @@
                       </label>
                     </div>
                 `)
+            }
+        })
 
-                const randSound = randChoice(TESTS[key].sounds)
+        const refObject = separate_reference ? REF : TESTS;
+        Object.keys(refObject).forEach(key => {
+            const test = refObject[key];
+
+            if (test.name === "break") {
+                referenceDiv.append("<hr>")
+            } else {
+                const iconsHtml = []
+                test.icons.forEach(icon => {
+                    iconsHtml.push(`<img src='./img/${icon}.png' width="20">`)
+                })
+                const randSound = randChoice(test.sounds)
+                const randShoot = randChoice(test.shooting)
+                const hidden = separate_reference ? '' : 'hidden';
+                const shootHidden = randShoot ? '' : 'hidden';
                 referenceDiv.append(`
                     <div class='sound-ref'>
                         <h6>${test.name} ${iconsHtml.join("")}</h6>
-                        <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}?v=${build}"></audio>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <small ${hidden}>Driving</small><br ${hidden}>
+                                <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randSound}?v=${build}"></audio>
+                            </div>
+                            <div class="col-md-6" ${shootHidden}>
+                                <small>Shooting</small><br>
+                                <audio controls preload="none"><source type="audio/mpeg" src="./audio/${randShoot}?v=${build}"></audio>
+                            </div>
+                        </div>
                     </div>
                 `)
             }
-        })
+        });
 
         btnSubmit.click(function () {
             const selected = $("input[name='soundType']:checked").attr('id');
@@ -93,7 +117,7 @@
             const resultTitle = $("#resultTitle")
             const resultContent = $("#resultContent")
 
-            resultContent.html(`That was a ${test.name}.<div style="background-image:url('./img/${test.preview}');margin-top:15px;width:100%;height:250px;background-position:center;background-size:cover"></div>`)
+            resultContent.html(`That was a ${test.name}.<div style="background-image:url('./img/${test.preview}');${test.preview?'':'display:none'};margin-top:15px;width:100%;height:250px;background-position:center;background-size:cover;"></div>`)
 
             console.log(selected, '===', answer)
             if (selected === answer) {

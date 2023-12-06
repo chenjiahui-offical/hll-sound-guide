@@ -28,7 +28,13 @@ title: Vehicles - HLL Sound Guide
                     <small class="text-muted">Tips/Notes</small>
                     <ul class="text-muted" style="margin-bottom: 0">
                         <li><small>
+                            Thanks to RyanCraig37 for assisting with sound recording.
+                        </small></li>
+                        <li><small>
                             Determine tank/vehicle type just from sound without even having to see it.
+                        </small></li>
+                        <li><small>
+                            TODO: Missing recording of British Recon Tank, Daimler.
                         </small></li>
                     </ul>
                 </div>
@@ -42,135 +48,467 @@ title: Vehicles - HLL Sound Guide
                 <div class="card-body">
                     <div id="reference"></div>
                     <script>
-                        const TESTS = {}
-                        const TESTS2 = {
+                        const separate_reference = true;
+                        const TESTS = {
                             truckEng: {
-                                name: 'Truck',
-                                icons: ['german', 'usa'],
+                                name: 'Truck (Any)',
+                                icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
-                                    '',
+                                    'brit truck.mp3',
+                                    'brit truck.mp3',
+                                    'ger truck.mp3',
+                                    'ger truck 2.mp3',
+                                    'soviet truck.mp3',
+                                    'soviet truck 2.mp3',
+                                    'us truck.mp3',
+                                    'us truck 2.mp3',
                                 ],
-                            },
-                            sovietTruck: {
-                                name: 'Soviet Truck',
-                                icons: ['soviet'],
-                                sounds: [
-                                    '',
-                                ]
-                            },
-                            britTruck: {
-                                name: 'British Truck',
-                                icons: ['british'],
-                                sounds: [
-                                    '',
-                                ]
                             },
 
                             jeepEng: {
-                                name: 'Jeep',
+                                name: 'Jeep (Any)',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
-                                    '',
+                                    'brit jeep.mp3',
+                                    'brit jeep 2.mp3',
+                                    'ger jeep.mp3',
+                                    'ger jeep 2.mp3',
+                                    'soviet jeep.mp3',
+                                    'soviet jeep 2.mp3',
+                                    'us jeep.mp3',
+                                    'us jeep 2.mp3',
                                 ],
                             },
                             halftrackEng: {
-                                name: 'Halftrack',
+                                name: 'Halftrack (Any)',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
-                                    '',
+                                    'brit m3 halftrack driving.mp3',
+                                    'ger halftrack driving.mp3',
+                                    'soviet m3 halftrack driving.mp3',
+                                    'us halftrack driving.mp3',
                                 ],
                             },
 
                             br: {name:'break'},
 
-                            shermanHeavyEng: {
-                                name: 'Sherman 76/75 Heavy',
-                                icons: ['usa'],
-                                sounds: [
-                                    ''
-                                ]
-                            },
-                            shermanMedium: {
-                                name: 'Sherman Medium',
-                                icons: ['usa'],
-                                sounds: [
-                                    ''
-                                ]
-                            },
-                            pantherEng: {
-                                name: 'Panther Heavy',
+                            germanTiger: {
+                                name: 'Tiger Heavy Tank',
                                 icons: ['german'],
                                 sounds: [
-                                    ''
+                                    'ger tiger driving.mp3',
+                                    'ger tiger driving 2.mp3',
+                                    'ger tiger driving 3.mp3',
                                 ]
                             },
-                            tigerEng: {
-                                name: 'Tiger Heavy',
+                            germanPanther: {
+                                name: 'Panther Heavy Tank',
                                 icons: ['german'],
                                 sounds: [
-                                    ''
+                                    'ger panther driving.mp3',
+                                    'ger panther driving 2.mp3',
+                                    'ger panther driving 3.mp3',
                                 ]
                             },
-                            pz4Eng: {
-                                name: 'Panzer IV Medium',
+                            germanPz4: {
+                                name: 'Panzer 4 Medium Tank',
                                 icons: ['german'],
                                 sounds: [
-                                    ''
+                                    'ger pz4 driving.mp3',
+                                    'ger pz4 driving 2.mp3',
                                 ]
                             },
-
-                            br2: {name:'break'},
-
-                            lightTankEng: {
-                                name: 'Light Tank',
-                                icons: ['german', 'soviet', 'usa'],
-                                sounds: [
-                                    '',
-                                ],
-                            },
-                            britLightTank: {
-                                name: 'British Light Tank',
-                                icons: ['british'],
-                                sounds: [
-                                    '',
-                                ],
-                            },
-                            luchsFiring: {
-                                name: 'Luchs Firing Light',
-                                icons: ['german'],
-                                sounds: [
-                                    '',
-                                ],
-                            },
-                            reconTankEng: {
-                                name: 'Recon Tank',
-                                icons: ['german', 'usa'],
-                                sounds: [
-                                    '',
-                                ],
-                            },
-                            sovietReconTank: {
-                                name: 'Soviet Recon Tank',
+                            sovietIs1: {
+                                name: 'Soviet IS1 Heavy Tank',
                                 icons: ['soviet'],
                                 sounds: [
-                                    '',
-                                ],
+                                    'soviet heavy driving.mp3',
+                                    'soviet heavy driving 2.mp3',
+                                ]
                             },
-                            britReconTank: {
-                                name: 'British Recon Tank',
+                            sovietT34: {
+                                name: 'Soviet T34 Medium Tank',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet medium driving.mp3',
+                                    'soviet medium driving 2.mp3',
+                                    'soviet medium driving 3.mp3',
+                                ]
+                            },
+                            shermanMedHeavy: {
+                                name: 'Sherman Med/75/76/Firefly',
+                                icons: ['british', 'usa'],
+                                sounds: [
+                                    'brit firefly driving.mp3',
+                                    'us medium driving.mp3',
+                                    'us medium driving 2.mp3',
+                                    'us medium driving 3.mp3',
+                                    'us jumbo 75 driving.mp3',
+                                    'us jumbo 76 driving.mp3',
+                                    'us jumbo 76 driving 2.mp3',
+                                ]
+                            },
+                            britMedHeavy: {
+                                name: 'British Churchill/Cromwell Tank',
                                 icons: ['british'],
                                 sounds: [
-                                    '',
+                                    'brit churchill driving.mp3',
+                                    'brit churchill driving 2.mp3',
+                                    'brit churchill driving 3.mp3',
+                                    'brit cromwell driving.mp3',
+                                    'brit cromwell driving 2.mp3',
+                                ]
+                            },
+                            lightTank: {
+                                name: 'Light Tank (Any)',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'brit tetrach driving.mp3',
+                                    'brit tetrach driving 2.mp3',
+                                    'us light driving.mp3',
+                                    'us light driving 2.mp3',
+                                    'soviet light driving.mp3',
+                                    'soviet light driving 2.mp3',
+                                    'ger luchs driving.mp3',
+                                    'ger luchs driving.mp3',
+                                    'ger luchs shooting.mp3',
+                                ]
+                            },
+                            reconTank: {
+                                name: 'Recon Tank (Any)',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'us recon driving.mp3',
+                                    'us recon driving 2.mp3',
+                                    'soviet recon driving.mp3',
+                                    'soviet recon driving.mp3',
+                                    'ger recon driving.mp3',
+                                    'ger recon driving 2.mp3',
+                                ]
+                            },
+                        }
+
+                        const REF = {
+                            usTruck: {
+                                name: 'US Truck',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us truck.mp3',
+                                    'us truck 2.mp3',
                                 ],
+                                shooting: []
+                            },
+                            usJeep: {
+                                name: 'US Jeep',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us jeep.mp3',
+                                    'us jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            usHalftrack: {
+                                name: 'US M3 Halftrack',
+                                icons: ['usa'],
+                                sounds: ['us halftrack driving.mp3'],
+                                shooting: ['us halftrack shooting.mp3']
+                            },
+                            usReconTank: {
+                                name: 'US Greyhound Recon Tank',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us recon driving.mp3',
+                                    'us recon driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'us recon shooting.mp3',
+                                    'us recon shooting 2.mp3',
+                                ]
+                            },
+                            usLightTank: {
+                                name: 'US Stuart Light Tank',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us light driving.mp3',
+                                    'us light driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'us light shooting.mp3',
+                                ]
+                            },
+                            usMedium: {
+                                name: 'US Medium Tank',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us medium driving.mp3',
+                                    'us medium driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'us medium shooting.mp3',
+                                ]
+                            },
+                            usJumbo75: {
+                                name: 'US Jumbo 75 Heavy Tank',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us jumbo 75 driving.mp3',
+                                ],
+                                shooting: [
+                                    'us jumbo 75 shooting.mp3',
+                                ]
+                            },
+                            usJumbo76: {
+                                name: 'US Jumbo 76 Heavy Tank',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us jumbo 76 driving.mp3',
+                                ],
+                                shooting: [
+                                    'us jumbo 76 shooting.mp3',
+                                ]
                             },
 
-                            // foo: {
-                            //     name: '',
-                            //     icons: ['british', 'german', 'soviet', 'usa'],
+                            br: {name:'break'},
+
+                            gerTruck: {
+                                name: 'German Truck',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger truck.mp3',
+                                    'ger truck 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            gerJeep: {
+                                name: 'German Jeep',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger jeep.mp3',
+                                    'ger jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            gerHalftrack: {
+                                name: 'German Halftrack',
+                                icons: ['german'],
+                                sounds: ['ger halftrack driving.mp3'],
+                                shooting: ['ger halftrack shooting.mp3']
+                            },
+                            gerReconTank: {
+                                name: 'German Puma Recon Tank',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger recon driving.mp3',
+                                    'ger recon driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'ger recon shooting.mp3',
+                                ]
+                            },
+                            gerLightTank: {
+                                name: 'German Luchs Light Tank',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger luchs driving.mp3',
+                                ],
+                                shooting: [
+                                    'ger luchs shooting.mp3',
+                                ]
+                            },
+                            gerMediumTank: {
+                                name: 'German Panzer IV Medium Tank',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger pz4 driving.mp3',
+                                    'ger pz4 driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'ger pz4 shooting.mp3',
+                                ]
+                            },
+                            gerTigerTank: {
+                                name: 'German Tiger Heavy Tank',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger tiger driving.mp3',
+                                    'ger tiger driving 2.mp3',
+                                    'ger tiger driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'ger tiger shooting.mp3',
+                                ]
+                            },
+                            gerPantherTank: {
+                                name: 'German Panther Heavy Tank',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger panther driving.mp3',
+                                    'ger panther driving 2.mp3',
+                                    'ger panther driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'ger panther shooting.mp3',
+                                ]
+                            },
+
+                            br: {name:'break'},
+
+
+                            sovTruck: {
+                                name: 'Soviet Truck',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet truck.mp3',
+                                    'soviet truck 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            sovJeep: {
+                                name: 'Soviet Jeep',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet jeep.mp3',
+                                    'soviet jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            sovHalftrack: {
+                                name: 'Soviet M3 Halftrack',
+                                icons: ['soviet'],
+                                sounds: ['soviet m3 halftrack driving.mp3'],
+                                shooting: ['soviet m3 halftrack shooting.mp3']
+                            },
+                            sovReconTank: {
+                                name: 'Soviet BA-10 Recon Tank "Clown Car"',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet recon driving.mp3',
+                                    'soviet recon driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'soviet recon shooting.mp3',
+                                ]
+                            },
+                            sovLightTank: {
+                                name: 'Soviet T-70 Light Tank',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet light driving.mp3',
+                                    'soviet light driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'soviet light shooting.mp3',
+                                ]
+                            },
+                            sovMediumTank: {
+                                name: 'Soviet T-34 Medium Tank',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet medium driving.mp3',
+                                    'soviet medium driving 2.mp3',
+                                    'soviet medium driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'soviet medium shooting.mp3',
+                                    'soviet medium shooting 2.mp3',
+                                ]
+                            },
+                            sovHeavyTank: {
+                                name: 'Soviet IS-1 Heavy Tank',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet heavy driving.mp3',
+                                    'soviet heavy driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'soviet heavy shooting.mp3',
+                                    'soviet heavy shooting 2.mp3',
+                                ]
+                            },
+
+                            br: {name:'break'},
+
+
+                            britTruck: {
+                                name: 'British Truck',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit truck.mp3',
+                                ],
+                                shooting: []
+                            },
+                            britJeep: {
+                                name: 'British Jeep',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit jeep.mp3',
+                                    'brit jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            britHalftrack: {
+                                name: 'British M3 Halftrack',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit m3 halftrack driving.mp3',
+                                ],
+                                shooting: ['brit m3 halftrack shooting.mp3']
+                            },
+                            // britReconTank: {
+                            //     name: 'British Diamler Recon Tank',
+                            //     icons: ['british'],
                             //     sounds: [
-                            //         '',
+                            //         'brit recon driving.mp3',
+                            //         'brit recon driving 2.mp3',
                             //     ],
+                            //     shooting: [
+                            //         'brit recon shooting.mp3',
+                            //     ]
                             // },
+                            britLightTank: {
+                                name: 'British Tetrarch Light Tank',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit tetrach driving.mp3',
+                                    'brit tetrach driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'brit tetrach shooting.mp3',
+                                ]
+                            },
+                            britMediumTank: {
+                                name: 'British Cromwell Medium Tank',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit cromwell driving.mp3',
+                                    'brit cromwell driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'brit cromwell shooting.mp3',
+                                ]
+                            },
+                            britFireflyTank: {
+                                name: 'British Firefly Heavy Tank',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit firefly driving.mp3',
+                                ],
+                                shooting: [
+                                    'brit firefly shooting.mp3',
+                                ]
+                            },
+                            britChurchillTank: {
+                                name: 'British Churchill Heavy Tank',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit churchill driving.mp3',
+                                    'brit churchill driving 2.mp3',
+                                    'brit churchill driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'brit churchill shooting.mp3',
+                                ]
+                            },
                         }
                     </script>
                 </div>
