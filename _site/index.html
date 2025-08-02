@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+          content="测试您对游戏内音效的了解。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="build" content="2025-08-02T01:18:00+00:00">
+    <title>飞机 - HLL音效库</title>
+    <link rel="icon" href="./icon.png">
+
+    <!-- Dependencies -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-nightshade.min.css" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js" type="text/javascript"></script>
+
+    <!-- App -->
+    <link href="./styles.css?v=2025-08-02T01:18:00+00:00" rel="stylesheet"/>
+    <script src="./script.js?v=2025-08-02T01:18:00+00:00" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <!-- Analytics -->
+    <script defer data-domain="mattw.io" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-3" style="border-bottom: 1px solid rgba(127,127,127,0.1);">
+    <span class="container">
+        <div class="navbar-brand">
+            <img src="./icon.png" alt="" class="d-inline-block align-text-top"><span style="padding-left: .75rem;">HLL音效库</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="./">飞机</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./vehicles">载具</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        工具集
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://maps.yuanxunfang.top/">
+                            <img width=20 src="https://mattw.io/maps-let-loose/icon.png">
+                            HLL战术跑图地图分析
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/hll-engineer-calc/">
+                            <img width=20 src="https://mattw.io/hll-engineer-calc/icon.png">
+                            HLL Engineer Calculator
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/hll-map-rotation/">
+                            <img width=20 src="https://mattw.io/hll-map-rotation/icon.png">
+                            HLL Map Rotation Generator
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/hll-server-browser/">
+                            <img width=20 src="https://mattw.io/hll-server-browser/icon.png">
+                            HLL Server Browser (concept)
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://sounds.yuanxunfang.top/">
+                            <img width=20 src="https://mattw.io/hll-sound-guide/icon.png">
+                            HLL音效库
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/strats-let-loose/">
+                            <img width=20 src="https://mattw.io/strats-let-loose/icon.png">
+                            Strats Let Loose
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </span>
+</nav>
+
+<div class="container-fluid" style="height:200px; background-image:url('./planes.jpg');background-position: center; margin-bottom: 1.5em; filter: blur(1px)">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>飞机测试</h4>
+                </div>
+                <div class="card-body">
+                    <audio id="audio" controls style="margin-bottom: 15px; width: 100%;">
+                        <source id="audio-clip" type="audio/mpeg" src="">
+                        您的浏览器不支持音频元素。
+                    </audio>
+                    <br>
+                    <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%"
+                            data-bs-toggle="modal" data-bs-target="#resultModal">
+                        提交
+                    </button>
+                    <div id="options" style="margin-bottom:15px"></div>
+
+                    <small class="text-muted">提示/说明</small>
+                    <ul class="text-muted" style="margin-bottom: 0">
+                        <li><small>
+                            为了在游戏中获得最佳效果，请尽快猜测（在炸弹或子弹击中之前）。待办：重做扫射音效。
+                        </small></li>
+                        <li><small>
+                            无论你在哪里，如果能在不看到降落伞的情况下识别空降飞机也很好。
+                            一旦听到，告诉队伍抬头寻找。
+                        </small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>飞机参考</h4>
+                </div>
+                <div class="card-body">
+                    <div id="reference"></div>
+                    <script>
+                        const separate_reference = false;
+                        const TESTS = {
+                            supplyAmmoNormal: {
+                                name: '补给/弹药投放',
+                                icons: ['german', 'soviet', 'usa'],
+                                preview: 'supplyAmmo.png',
+                                sounds: [
+                                    'ger supply.mp3',
+                                    'sov supply.mp3',
+                                    'us supply.mp3',
+                                    'ger ammo.mp3',
+                                    'sov ammo.mp3',
+                                    'us ammo.mp3',
+                                ],
+                            },
+                            supplyAmmoBrit: {
+                                name: '英军补给/弹药投放',
+                                icons: ['british'],
+                                preview: 'supplyAmmo.png',
+                                sounds: [
+                                    'brit supply.mp3',
+                                    'brit ammo.mp3',
+                                ]
+                            },
+
+                            br1:{name:'break'},
+
+                            airheadStandard: {
+                                name: '空降投放',
+                                icons: ['german', 'soviet', 'usa'],
+                                preview: 'airhead.png',
+                                sounds: [
+                                    'ger airhead.mp3',
+                                    'sov airhead.mp3',
+                                    'us airhead.mp3',
+                                ]
+                            },
+                            airheadBrit: {
+                                name: '英军空降投放',
+                                icons: ['british'],
+                                preview: 'airhead.png',
+                                sounds: [
+                                    'brit airhead.mp3'
+                                ]
+                            },
+
+                            br2:{name:'break'},
+
+                            recon: {
+                                name: '侦察',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                preview: 'recon.png',
+                                sounds: [
+                                    'brit recon.mp3',
+                                    'ger recon.mp3',
+                                    'sov recon.mp3',
+                                    'us recon.mp3',
+                                ]
+                            },
+
+                            br3:{name:'break'},
+
+                            bombingRunNormal: {
+                                name: '轰炸',
+                                icons: ['german', 'usa'],
+                                preview: 'bombing_run.png',
+                                sounds: [
+                                    'ger bomb.mp3',
+                                    'us bomb.mp3',
+                                ]
+                            },
+                            bombingRunBrit: {
+                                name: '英军轰炸',
+                                icons: ['british'],
+                                preview: 'bombing_run.png',
+                                sounds: [
+                                    'brit bomb.mp3',
+                                ]
+                            },
+                            bombingRunSov: {
+                                name: '苏军喀秋莎打击',
+                                icons: ['soviet'],
+                                preview: 'katyusha.jpg',
+                                sounds: [
+                                    'sov bomb.mp3'
+                                ]
+                            },
+
+                            br4:{name:'break'},
+
+                            precisionUsSov: {
+                                name: '精确打击',
+                                preview: 'strafe.png',
+                                icons: ['soviet', 'usa'],
+                                sounds: [
+                                    'us precision.mp3',
+                                    'sov precision.mp3',
+                                ]
+                            },
+                            precisionGer: {
+                                name: '德军精确斯图卡',
+                                preview: 'strafe.png',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger precision.mp3'
+                                ]
+                            },
+                            precisionBrit: {
+                                name: '英军精确打击',
+                                preview: 'strafe.png',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit precision.mp3'
+                                ]
+                            },
+
+                            br5:{name:'break'},
+
+                            strafingRun: {
+                                name: '扫射攻击',
+                                icons: ['german', 'soviet', 'usa'],
+                                preview: 'strafe.png',
+                                sounds: [
+                                    'ger strafe.mp3',
+                                    'sov strafe.mp3',
+                                    'us strafe.mp3',
+                                ]
+                            },
+                            strafingRunBrit: {
+                                name: '英军扫射攻击',
+                                preview: 'strafe.png',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit strafe.mp3',
+                                ]
+                            },
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="resultModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id="resultTitle" class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+            </div>
+            <div id="resultContent" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui container" style="padding-top:3%;padding-bottom:3%;color:darkgray;text-align:center">
+    <div style="margin-bottom: 15px;">
+        <strong>原项目:</strong> <a target="_blank"
+            href="https://github.com/mattwright324/hll-sound-guide">mattwright324/hll-sound-guide</a>
+        <br>
+        <strong>汉化来自:</strong> 东德消防-源寻芳
+        <br>
+        <strong>人间地狱战术技术讨论:</strong> QQ 1552308626
+    </div>
+    <div>
+        chenjiahui-offical | 2025 | <a href="/">主页</a> | <a target="_blank"
+            href="https://github.com/chenjiahui-offical">github</a>
+        | <a target="_blank" href="https://github.com/chenjiahui-offical/hll-sound-guide#">hll-sound-guide</a>
+    </div>
+</div>
+</body>
+</html>

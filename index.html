@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Planes - HLL Sound Guide
+title: 飞机 - HLL音效库
 ---
 
 <div class="container-fluid" style="height:200px; background-image:url('./planes.jpg');background-position: center; margin-bottom: 1.5em; filter: blur(1px)">
@@ -11,28 +11,28 @@ title: Planes - HLL Sound Guide
         <div class="col col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Planes Test</h4>
+                    <h4>飞机测试</h4>
                 </div>
                 <div class="card-body">
                     <audio id="audio" controls style="margin-bottom: 15px; width: 100%;">
                         <source id="audio-clip" type="audio/mpeg" src="">
-                        Your browser does not support the audio element.
+                        您的浏览器不支持音频元素。
                     </audio>
                     <br>
                     <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%"
                             data-bs-toggle="modal" data-bs-target="#resultModal">
-                        Submit
+                        提交
                     </button>
                     <div id="options" style="margin-bottom:15px"></div>
 
-                    <small class="text-muted">Tips/Notes</small>
+                    <small class="text-muted">提示/说明</small>
                     <ul class="text-muted" style="margin-bottom: 0">
                         <li><small>
-                            For best results in-game, try to guess as quickly as possible (before the bombs or bullets hit). TODO: Redo strafing run sounds.
+                            为了在游戏中获得最佳效果，请尽快猜测（在炸弹或子弹击中之前）。待办：重做扫射音效。
                         </small></li>
                         <li><small>
-                            It's also very good if you can identify airhead planes without seeing the parachute no matter where you are.
-                            Once you hear it, tell the team to look up and find it.
+                            无论你在哪里，如果能在不看到降落伞的情况下识别空降飞机也很好。
+                            一旦听到，告诉队伍抬头寻找。
                         </small></li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@ title: Planes - HLL Sound Guide
         <div class="col col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Planes Reference</h4>
+                    <h4>飞机参考</h4>
                 </div>
                 <div class="card-body">
                     <div id="reference"></div>
@@ -49,7 +49,7 @@ title: Planes - HLL Sound Guide
                         const separate_reference = false;
                         const TESTS = {
                             supplyAmmoNormal: {
-                                name: 'Supply/Ammo Drop',
+                                name: '补给/弹药投放',
                                 icons: ['german', 'soviet', 'usa'],
                                 preview: 'supplyAmmo.png',
                                 sounds: [
@@ -62,7 +62,7 @@ title: Planes - HLL Sound Guide
                                 ],
                             },
                             supplyAmmoBrit: {
-                                name: 'British Supply/Ammo Drop',
+                                name: '英军补给/弹药投放',
                                 icons: ['british'],
                                 preview: 'supplyAmmo.png',
                                 sounds: [
@@ -74,7 +74,7 @@ title: Planes - HLL Sound Guide
                             br1:{name:'break'},
 
                             airheadStandard: {
-                                name: 'Airhead',
+                                name: '空降投放',
                                 icons: ['german', 'soviet', 'usa'],
                                 preview: 'airhead.png',
                                 sounds: [
@@ -84,7 +84,7 @@ title: Planes - HLL Sound Guide
                                 ]
                             },
                             airheadBrit: {
-                                name: 'British Airhead',
+                                name: '英军空降投放',
                                 icons: ['british'],
                                 preview: 'airhead.png',
                                 sounds: [
@@ -95,7 +95,7 @@ title: Planes - HLL Sound Guide
                             br2:{name:'break'},
 
                             recon: {
-                                name: 'Recon',
+                                name: '侦察',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 preview: 'recon.png',
                                 sounds: [
@@ -109,7 +109,7 @@ title: Planes - HLL Sound Guide
                             br3:{name:'break'},
 
                             bombingRunNormal: {
-                                name: 'Bombing Run',
+                                name: '轰炸',
                                 icons: ['german', 'usa'],
                                 preview: 'bombing_run.png',
                                 sounds: [
@@ -118,7 +118,7 @@ title: Planes - HLL Sound Guide
                                 ]
                             },
                             bombingRunBrit: {
-                                name: 'British Bombing Run',
+                                name: '英军轰炸',
                                 icons: ['british'],
                                 preview: 'bombing_run.png',
                                 sounds: [
@@ -126,7 +126,7 @@ title: Planes - HLL Sound Guide
                                 ]
                             },
                             bombingRunSov: {
-                                name: 'Soviet Katyusha Strike',
+                                name: '苏军喀秋莎打击',
                                 icons: ['soviet'],
                                 preview: 'katyusha.jpg',
                                 sounds: [
@@ -137,7 +137,7 @@ title: Planes - HLL Sound Guide
                             br4:{name:'break'},
 
                             precisionUsSov: {
-                                name: 'Precision Strike',
+                                name: '精确打击',
                                 preview: 'strafe.png',
                                 icons: ['soviet', 'usa'],
                                 sounds: [
@@ -146,7 +146,7 @@ title: Planes - HLL Sound Guide
                                 ]
                             },
                             precisionGer: {
-                                name: 'German Precision Stuka',
+                                name: '德军精确斯图卡',
                                 preview: 'strafe.png',
                                 icons: ['german'],
                                 sounds: [
@@ -154,7 +154,7 @@ title: Planes - HLL Sound Guide
                                 ]
                             },
                             precisionBrit: {
-                                name: 'British Precision Strike',
+                                name: '英军精确打击',
                                 preview: 'strafe.png',
                                 icons: ['british'],
                                 sounds: [
@@ -165,7 +165,7 @@ title: Planes - HLL Sound Guide
                             br5:{name:'break'},
 
                             strafingRun: {
-                                name: 'Strafing Run',
+                                name: '扫射攻击',
                                 icons: ['german', 'soviet', 'usa'],
                                 preview: 'strafe.png',
                                 sounds: [
@@ -175,7 +175,7 @@ title: Planes - HLL Sound Guide
                                 ]
                             },
                             strafingRunBrit: {
-                                name: 'British Strafing Run',
+                                name: '英军扫射攻击',
                                 preview: 'strafe.png',
                                 icons: ['british'],
                                 sounds: [

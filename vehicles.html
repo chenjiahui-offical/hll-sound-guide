@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Vehicles - HLL Sound Guide
+title: 载具 - HLL音效库
 ---
 
 <div class="container-fluid" style="height:200px; background-image:url('./vehicles.jpg');background-position: center; margin-bottom: 1.5em; filter: blur(1px)">
@@ -11,30 +11,30 @@ title: Vehicles - HLL Sound Guide
         <div class="col col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Vehicles Test</h4>
+                    <h4>载具测试</h4>
                 </div>
                 <div class="card-body">
                     <audio id="audio" controls style="margin-bottom: 15px; width: 100%;">
                         <source id="audio-clip" type="audio/mpeg" src="">
-                        Your browser does not support the audio element.
+                        您的浏览器不支持音频元素。
                     </audio>
                     <br>
                     <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%"
                             data-bs-toggle="modal" data-bs-target="#resultModal">
-                        Submit
+                        提交
                     </button>
                     <div id="options" style="margin-bottom:15px"></div>
 
-                    <small class="text-muted">Tips/Notes</small>
+                    <small class="text-muted">提示/说明</small>
                     <ul class="text-muted" style="margin-bottom: 0">
                         <li><small>
-                            Thanks to RyanCraig37 for assisting with sound recording.
+                            感谢 RyanCraig37 协助录制音效。
                         </small></li>
                         <li><small>
-                            Determine tank/vehicle type just from sound without even having to see it.
+                            仅通过声音判断坦克/载具类型，无需看到实物。
                         </small></li>
                         <li><small>
-                            TODO: Missing recording of British Recon Tank, Daimler.
+                            待办：缺少英军侦察坦克戴姆勒的录音。
                         </small></li>
                     </ul>
                 </div>
@@ -43,7 +43,7 @@ title: Vehicles - HLL Sound Guide
         <div class="col col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h4>Vehicles Reference</h4>
+                    <h4>载具参考</h4>
                 </div>
                 <div class="card-body">
                     <div id="reference"></div>
@@ -51,7 +51,7 @@ title: Vehicles - HLL Sound Guide
                         const separate_reference = true;
                         const TESTS = {
                             truckEng: {
-                                name: 'Truck (Any)',
+                                name: '卡车（任意）',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
                                     'brit truck.mp3',
@@ -66,7 +66,7 @@ title: Vehicles - HLL Sound Guide
                             },
 
                             jeepEng: {
-                                name: 'Jeep (Any)',
+                                name: '吉普车（任意）',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
                                     'brit jeep.mp3',
@@ -80,7 +80,7 @@ title: Vehicles - HLL Sound Guide
                                 ],
                             },
                             halftrackEng: {
-                                name: 'Halftrack (Any)',
+                                name: '半履带车（任意）',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
                                     'brit m3 halftrack driving.mp3',
@@ -93,7 +93,7 @@ title: Vehicles - HLL Sound Guide
                             br: {name:'break'},
 
                             germanTiger: {
-                                name: 'Tiger Heavy Tank',
+                                name: '虎式重型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger tiger driving.mp3',
@@ -102,7 +102,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             germanPanther: {
-                                name: 'Panther Heavy Tank',
+                                name: '豹式重型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger panther driving.mp3',
@@ -111,7 +111,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             germanPz4: {
-                                name: 'Panzer 4 Medium Tank',
+                                name: '四号坦克中型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger pz4 driving.mp3',
@@ -119,7 +119,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             sovietIs1: {
-                                name: 'Soviet IS1 Heavy Tank',
+                                name: '苏军IS-1重型坦克',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet heavy driving.mp3',
@@ -127,7 +127,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             sovietT34: {
-                                name: 'Soviet T34 Medium Tank',
+                                name: '苏军T-34中型坦克',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet medium driving.mp3',
@@ -136,7 +136,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             shermanMedHeavy: {
-                                name: 'Sherman Med/75/76/Firefly',
+                                name: '谢尔曼中型/75/76/萤火虫',
                                 icons: ['british', 'usa'],
                                 sounds: [
                                     'brit firefly driving.mp3',
@@ -148,7 +148,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             britMedHeavy: {
-                                name: 'British Churchill/Cromwell Tank',
+                                name: '英军丘吉尔/克伦威尔坦克',
                                 icons: ['british'],
                                 sounds: [
                                     'brit churchill driving.mp3',
@@ -159,7 +159,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             lightTank: {
-                                name: 'Light Tank (Any)',
+                                name: '轻型坦克（任意）',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
                                     'brit tetrach driving.mp3',
@@ -174,7 +174,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             reconTank: {
-                                name: 'Recon Tank (Any)',
+                                name: '侦察坦克（任意）',
                                 icons: ['british', 'german', 'soviet', 'usa'],
                                 sounds: [
                                     'us recon driving.mp3',
@@ -189,7 +189,7 @@ title: Vehicles - HLL Sound Guide
 
                         const REF = {
                             usTruck: {
-                                name: 'US Truck',
+                                name: '美军卡车',
                                 icons: ['usa'],
                                 sounds: [
                                     'us truck.mp3',
@@ -198,7 +198,7 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             usJeep: {
-                                name: 'US Jeep',
+                                name: '美军吉普车',
                                 icons: ['usa'],
                                 sounds: [
                                     'us jeep.mp3',
@@ -207,13 +207,13 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             usHalftrack: {
-                                name: 'US M3 Halftrack',
+                                name: '美军M3半履带车',
                                 icons: ['usa'],
                                 sounds: ['us halftrack driving.mp3'],
                                 shooting: ['us halftrack shooting.mp3']
                             },
                             usReconTank: {
-                                name: 'US Greyhound Recon Tank',
+                                name: '美军灰狗侦察坦克',
                                 icons: ['usa'],
                                 sounds: [
                                     'us recon driving.mp3',
@@ -225,7 +225,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             usLightTank: {
-                                name: 'US Stuart Light Tank',
+                                name: '美军斯图亚特轻型坦克',
                                 icons: ['usa'],
                                 sounds: [
                                     'us light driving.mp3',
@@ -236,7 +236,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             usMedium: {
-                                name: 'US Medium Tank',
+                                name: '美军谢尔曼中型坦克',
                                 icons: ['usa'],
                                 sounds: [
                                     'us medium driving.mp3',
@@ -247,7 +247,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             usJumbo75: {
-                                name: 'US Jumbo 75 Heavy Tank',
+                                name: '美军谢尔曼75重型坦克',
                                 icons: ['usa'],
                                 sounds: [
                                     'us jumbo 75 driving.mp3',
@@ -257,7 +257,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             usJumbo76: {
-                                name: 'US Jumbo 76 Heavy Tank',
+                                name: '美军谢尔曼76重型坦克',
                                 icons: ['usa'],
                                 sounds: [
                                     'us jumbo 76 driving.mp3',
@@ -270,7 +270,7 @@ title: Vehicles - HLL Sound Guide
                             br: {name:'break'},
 
                             gerTruck: {
-                                name: 'German Truck',
+                                name: '德军卡车',
                                 icons: ['german'],
                                 sounds: [
                                     'ger truck.mp3',
@@ -279,7 +279,7 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             gerJeep: {
-                                name: 'German Jeep',
+                                name: '德军吉普车',
                                 icons: ['german'],
                                 sounds: [
                                     'ger jeep.mp3',
@@ -288,13 +288,13 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             gerHalftrack: {
-                                name: 'German Halftrack',
+                                name: '德军半履带车',
                                 icons: ['german'],
                                 sounds: ['ger halftrack driving.mp3'],
                                 shooting: ['ger halftrack shooting.mp3']
                             },
                             gerReconTank: {
-                                name: 'German Puma Recon Tank',
+                                name: '德军美洲豹侦察坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger recon driving.mp3',
@@ -305,7 +305,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             gerLightTank: {
-                                name: 'German Luchs Light Tank',
+                                name: '德军山猫轻型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger luchs driving.mp3',
@@ -315,7 +315,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             gerMediumTank: {
-                                name: 'German Panzer IV Medium Tank',
+                                name: '德军四号坦克中型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger pz4 driving.mp3',
@@ -326,7 +326,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             gerTigerTank: {
-                                name: 'German Tiger Heavy Tank',
+                                name: '德军虎式重型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger tiger driving.mp3',
@@ -337,7 +337,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             gerPantherTank: {
-                                name: 'German Panther Heavy Tank',
+                                name: '德军豹式重型坦克',
                                 icons: ['german'],
                                 sounds: [
                                     'ger panther driving.mp3',
@@ -353,7 +353,7 @@ title: Vehicles - HLL Sound Guide
 
 
                             sovTruck: {
-                                name: 'Soviet Truck',
+                                name: '苏军卡车',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet truck.mp3',
@@ -362,7 +362,7 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             sovJeep: {
-                                name: 'Soviet Jeep',
+                                name: '苏军吉普车',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet jeep.mp3',
@@ -371,13 +371,13 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             sovHalftrack: {
-                                name: 'Soviet M3 Halftrack',
+                                name: '苏军M3半履带车',
                                 icons: ['soviet'],
                                 sounds: ['soviet m3 halftrack driving.mp3'],
                                 shooting: ['soviet m3 halftrack shooting.mp3']
                             },
                             sovReconTank: {
-                                name: 'Soviet BA-10 Recon Tank "Clown Car"',
+                                name: '苏军BA-10侦察坦克"小丑车"',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet recon driving.mp3',
@@ -388,7 +388,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             sovLightTank: {
-                                name: 'Soviet T-70 Light Tank',
+                                name: '苏军T-70轻型坦克',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet light driving.mp3',
@@ -399,7 +399,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             sovMediumTank: {
-                                name: 'Soviet T-34 Medium Tank',
+                                name: '苏军T-34中型坦克',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet medium driving.mp3',
@@ -412,7 +412,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             sovHeavyTank: {
-                                name: 'Soviet IS-1 Heavy Tank',
+                                name: '苏军IS-1重型坦克',
                                 icons: ['soviet'],
                                 sounds: [
                                     'soviet heavy driving.mp3',
@@ -428,7 +428,7 @@ title: Vehicles - HLL Sound Guide
 
 
                             britTruck: {
-                                name: 'British Truck',
+                                name: '英军卡车',
                                 icons: ['british'],
                                 sounds: [
                                     'brit truck.mp3',
@@ -436,7 +436,7 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             britJeep: {
-                                name: 'British Jeep',
+                                name: '英军吉普车',
                                 icons: ['british'],
                                 sounds: [
                                     'brit jeep.mp3',
@@ -445,7 +445,7 @@ title: Vehicles - HLL Sound Guide
                                 shooting: []
                             },
                             britHalftrack: {
-                                name: 'British M3 Halftrack',
+                                name: '英军M3半履带车',
                                 icons: ['british'],
                                 sounds: [
                                     'brit m3 halftrack driving.mp3',
@@ -464,7 +464,7 @@ title: Vehicles - HLL Sound Guide
                             //     ]
                             // },
                             britLightTank: {
-                                name: 'British Tetrarch Light Tank',
+                                name: '英军四联装轻型坦克',
                                 icons: ['british'],
                                 sounds: [
                                     'brit tetrach driving.mp3',
@@ -475,7 +475,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             britMediumTank: {
-                                name: 'British Cromwell Medium Tank',
+                                name: '英军克伦威尔中型坦克',
                                 icons: ['british'],
                                 sounds: [
                                     'brit cromwell driving.mp3',
@@ -486,7 +486,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             britFireflyTank: {
-                                name: 'British Firefly Heavy Tank',
+                                name: '英军萤火虫重型坦克',
                                 icons: ['british'],
                                 sounds: [
                                     'brit firefly driving.mp3',
@@ -496,7 +496,7 @@ title: Vehicles - HLL Sound Guide
                                 ]
                             },
                             britChurchillTank: {
-                                name: 'British Churchill Heavy Tank',
+                                name: '英军丘吉尔重型坦克',
                                 icons: ['british'],
                                 sounds: [
                                     'brit churchill driving.mp3',
@@ -513,7 +513,7 @@ title: Vehicles - HLL Sound Guide
                             br6: {name:'break'},
 
                             forRyan: {
-                                name: 'British Craigwell 37 (for Ryan)',
+                                name: '英军克雷格威尔37',
                                 icons: ['british'],
                                 sounds: [],
                                 shooting: [

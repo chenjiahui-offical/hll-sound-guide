@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description"
+          content="测试您对游戏内音效的了解。">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="build" content="2025-08-02T01:18:00+00:00">
+    <title>载具 - HLL音效库</title>
+    <link rel="icon" href="./icon.png">
+
+    <!-- Dependencies -->
+    <link href="//cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-nightshade.min.css" rel="stylesheet">
+    <link href="//cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js" type="text/javascript"></script>
+
+    <!-- App -->
+    <link href="./styles.css?v=2025-08-02T01:18:00+00:00" rel="stylesheet"/>
+    <script src="./script.js?v=2025-08-02T01:18:00+00:00" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <!-- Analytics -->
+    <script defer data-domain="mattw.io" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light mb-3" style="border-bottom: 1px solid rgba(127,127,127,0.1);">
+    <span class="container">
+        <div class="navbar-brand">
+            <img src="./icon.png" alt="" class="d-inline-block align-text-top"><span style="padding-left: .75rem;">HLL音效库</span>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="./">飞机</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./vehicles">载具</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        工具集
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://maps.yuanxunfang.top/">
+                            <img width=20 src="https://mattw.io/maps-let-loose/icon.png">
+                            HLL战术跑图地图分析
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/hll-engineer-calc/">
+                            <img width=20 src="https://mattw.io/hll-engineer-calc/icon.png">
+                            HLL Engineer Calculator
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/hll-map-rotation/">
+                            <img width=20 src="https://mattw.io/hll-map-rotation/icon.png">
+                            HLL Map Rotation Generator
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/hll-server-browser/">
+                            <img width=20 src="https://mattw.io/hll-server-browser/icon.png">
+                            HLL Server Browser (concept)
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://sounds.yuanxunfang.top/">
+                            <img width=20 src="https://mattw.io/hll-sound-guide/icon.png">
+                            HLL音效库
+                        </a></li>
+                        <li><a class="dropdown-item" href="https://mattw.io/strats-let-loose/">
+                            <img width=20 src="https://mattw.io/strats-let-loose/icon.png">
+                            Strats Let Loose
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </span>
+</nav>
+
+<div class="container-fluid" style="height:200px; background-image:url('./vehicles.jpg');background-position: center; margin-bottom: 1.5em; filter: blur(1px)">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>载具测试</h4>
+                </div>
+                <div class="card-body">
+                    <audio id="audio" controls style="margin-bottom: 15px; width: 100%;">
+                        <source id="audio-clip" type="audio/mpeg" src="">
+                        您的浏览器不支持音频元素。
+                    </audio>
+                    <br>
+                    <button id="submit" type="button" class="btn btn-primary" disabled="true" style="margin-bottom: 15px; width: 100%"
+                            data-bs-toggle="modal" data-bs-target="#resultModal">
+                        提交
+                    </button>
+                    <div id="options" style="margin-bottom:15px"></div>
+
+                    <small class="text-muted">提示/说明</small>
+                    <ul class="text-muted" style="margin-bottom: 0">
+                        <li><small>
+                            感谢 RyanCraig37 协助录制音效。
+                        </small></li>
+                        <li><small>
+                            仅通过声音判断坦克/载具类型，无需看到实物。
+                        </small></li>
+                        <li><small>
+                            待办：缺少英军侦察坦克戴姆勒的录音。
+                        </small></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>载具参考</h4>
+                </div>
+                <div class="card-body">
+                    <div id="reference"></div>
+                    <script>
+                        const separate_reference = true;
+                        const TESTS = {
+                            truckEng: {
+                                name: '卡车（任意）',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'brit truck.mp3',
+                                    'brit truck.mp3',
+                                    'ger truck.mp3',
+                                    'ger truck 2.mp3',
+                                    'soviet truck.mp3',
+                                    'soviet truck 2.mp3',
+                                    'us truck.mp3',
+                                    'us truck 2.mp3',
+                                ],
+                            },
+
+                            jeepEng: {
+                                name: '吉普车（任意）',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'brit jeep.mp3',
+                                    'brit jeep 2.mp3',
+                                    'ger jeep.mp3',
+                                    'ger jeep 2.mp3',
+                                    'soviet jeep.mp3',
+                                    'soviet jeep 2.mp3',
+                                    'us jeep.mp3',
+                                    'us jeep 2.mp3',
+                                ],
+                            },
+                            halftrackEng: {
+                                name: '半履带车（任意）',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'brit m3 halftrack driving.mp3',
+                                    'ger halftrack driving.mp3',
+                                    'soviet m3 halftrack driving.mp3',
+                                    'us halftrack driving.mp3',
+                                ],
+                            },
+
+                            br: {name:'break'},
+
+                            germanTiger: {
+                                name: '虎式重型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger tiger driving.mp3',
+                                    'ger tiger driving 2.mp3',
+                                    'ger tiger driving 3.mp3',
+                                ]
+                            },
+                            germanPanther: {
+                                name: '豹式重型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger panther driving.mp3',
+                                    'ger panther driving 2.mp3',
+                                    'ger panther driving 3.mp3',
+                                ]
+                            },
+                            germanPz4: {
+                                name: '四号坦克中型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger pz4 driving.mp3',
+                                    'ger pz4 driving 2.mp3',
+                                ]
+                            },
+                            sovietIs1: {
+                                name: '苏军IS-1重型坦克',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet heavy driving.mp3',
+                                    'soviet heavy driving 2.mp3',
+                                ]
+                            },
+                            sovietT34: {
+                                name: '苏军T-34中型坦克',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet medium driving.mp3',
+                                    'soviet medium driving 2.mp3',
+                                    'soviet medium driving 3.mp3',
+                                ]
+                            },
+                            shermanMedHeavy: {
+                                name: '谢尔曼中型/75/76/萤火虫',
+                                icons: ['british', 'usa'],
+                                sounds: [
+                                    'brit firefly driving.mp3',
+                                    'us medium driving.mp3',
+                                    'us medium driving 2.mp3',
+                                    'us jumbo 75 driving.mp3',
+                                    'us jumbo 76 driving.mp3',
+                                    'us jumbo 76 driving 2.mp3',
+                                ]
+                            },
+                            britMedHeavy: {
+                                name: '英军丘吉尔/克伦威尔坦克',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit churchill driving.mp3',
+                                    'brit churchill driving 2.mp3',
+                                    'brit churchill driving 3.mp3',
+                                    'brit cromwell driving.mp3',
+                                    'brit cromwell driving 2.mp3',
+                                ]
+                            },
+                            lightTank: {
+                                name: '轻型坦克（任意）',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'brit tetrach driving.mp3',
+                                    'brit tetrach driving 2.mp3',
+                                    'us light driving.mp3',
+                                    'us light driving 2.mp3',
+                                    'soviet light driving.mp3',
+                                    'soviet light driving 2.mp3',
+                                    'ger luchs driving.mp3',
+                                    'ger luchs driving.mp3',
+                                    'ger luchs shooting.mp3',
+                                ]
+                            },
+                            reconTank: {
+                                name: '侦察坦克（任意）',
+                                icons: ['british', 'german', 'soviet', 'usa'],
+                                sounds: [
+                                    'us recon driving.mp3',
+                                    'us recon driving 2.mp3',
+                                    'soviet recon driving.mp3',
+                                    'soviet recon driving.mp3',
+                                    'ger recon driving.mp3',
+                                    'ger recon driving 2.mp3',
+                                ]
+                            },
+                        }
+
+                        const REF = {
+                            usTruck: {
+                                name: '美军卡车',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us truck.mp3',
+                                    'us truck 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            usJeep: {
+                                name: '美军吉普车',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us jeep.mp3',
+                                    'us jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            usHalftrack: {
+                                name: '美军M3半履带车',
+                                icons: ['usa'],
+                                sounds: ['us halftrack driving.mp3'],
+                                shooting: ['us halftrack shooting.mp3']
+                            },
+                            usReconTank: {
+                                name: '美军灰狗侦察坦克',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us recon driving.mp3',
+                                    'us recon driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'us recon shooting.mp3',
+                                    'us recon shooting 2.mp3',
+                                ]
+                            },
+                            usLightTank: {
+                                name: '美军斯图亚特轻型坦克',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us light driving.mp3',
+                                    'us light driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'us light shooting.mp3',
+                                ]
+                            },
+                            usMedium: {
+                                name: '美军谢尔曼中型坦克',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us medium driving.mp3',
+                                    'us medium driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'us medium shooting.mp3',
+                                ]
+                            },
+                            usJumbo75: {
+                                name: '美军谢尔曼75重型坦克',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us jumbo 75 driving.mp3',
+                                ],
+                                shooting: [
+                                    'us jumbo 75 shooting.mp3',
+                                ]
+                            },
+                            usJumbo76: {
+                                name: '美军谢尔曼76重型坦克',
+                                icons: ['usa'],
+                                sounds: [
+                                    'us jumbo 76 driving.mp3',
+                                ],
+                                shooting: [
+                                    'us jumbo 76 shooting.mp3',
+                                ]
+                            },
+
+                            br: {name:'break'},
+
+                            gerTruck: {
+                                name: '德军卡车',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger truck.mp3',
+                                    'ger truck 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            gerJeep: {
+                                name: '德军吉普车',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger jeep.mp3',
+                                    'ger jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            gerHalftrack: {
+                                name: '德军半履带车',
+                                icons: ['german'],
+                                sounds: ['ger halftrack driving.mp3'],
+                                shooting: ['ger halftrack shooting.mp3']
+                            },
+                            gerReconTank: {
+                                name: '德军美洲豹侦察坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger recon driving.mp3',
+                                    'ger recon driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'ger recon shooting.mp3',
+                                ]
+                            },
+                            gerLightTank: {
+                                name: '德军山猫轻型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger luchs driving.mp3',
+                                ],
+                                shooting: [
+                                    'ger luchs shooting.mp3',
+                                ]
+                            },
+                            gerMediumTank: {
+                                name: '德军四号坦克中型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger pz4 driving.mp3',
+                                    'ger pz4 driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'ger pz4 shooting.mp3',
+                                ]
+                            },
+                            gerTigerTank: {
+                                name: '德军虎式重型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger tiger driving.mp3',
+                                    'ger tiger driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'ger tiger shooting.mp3',
+                                ]
+                            },
+                            gerPantherTank: {
+                                name: '德军豹式重型坦克',
+                                icons: ['german'],
+                                sounds: [
+                                    'ger panther driving.mp3',
+                                    'ger panther driving 2.mp3',
+                                    'ger panther driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'ger panther shooting.mp3',
+                                ]
+                            },
+
+                            br2: {name:'break'},
+
+
+                            sovTruck: {
+                                name: '苏军卡车',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet truck.mp3',
+                                    'soviet truck 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            sovJeep: {
+                                name: '苏军吉普车',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet jeep.mp3',
+                                    'soviet jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            sovHalftrack: {
+                                name: '苏军M3半履带车',
+                                icons: ['soviet'],
+                                sounds: ['soviet m3 halftrack driving.mp3'],
+                                shooting: ['soviet m3 halftrack shooting.mp3']
+                            },
+                            sovReconTank: {
+                                name: '苏军BA-10侦察坦克"小丑车"',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet recon driving.mp3',
+                                    'soviet recon driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'soviet recon shooting.mp3',
+                                ]
+                            },
+                            sovLightTank: {
+                                name: '苏军T-70轻型坦克',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet light driving.mp3',
+                                    'soviet light driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'soviet light shooting.mp3',
+                                ]
+                            },
+                            sovMediumTank: {
+                                name: '苏军T-34中型坦克',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet medium driving.mp3',
+                                    'soviet medium driving 2.mp3',
+                                    'soviet medium driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'soviet medium shooting.mp3',
+                                    'soviet medium shooting 2.mp3',
+                                ]
+                            },
+                            sovHeavyTank: {
+                                name: '苏军IS-1重型坦克',
+                                icons: ['soviet'],
+                                sounds: [
+                                    'soviet heavy driving.mp3',
+                                    'soviet heavy driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'soviet heavy shooting.mp3',
+                                    'soviet heavy shooting 2.mp3',
+                                ]
+                            },
+
+                            br3: {name:'break'},
+
+
+                            britTruck: {
+                                name: '英军卡车',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit truck.mp3',
+                                ],
+                                shooting: []
+                            },
+                            britJeep: {
+                                name: '英军吉普车',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit jeep.mp3',
+                                    'brit jeep 2.mp3',
+                                ],
+                                shooting: []
+                            },
+                            britHalftrack: {
+                                name: '英军M3半履带车',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit m3 halftrack driving.mp3',
+                                ],
+                                shooting: ['brit m3 halftrack shooting.mp3']
+                            },
+                            // britReconTank: {
+                            //     name: 'British Diamler Recon Tank',
+                            //     icons: ['british'],
+                            //     sounds: [
+                            //         'brit recon driving.mp3',
+                            //         'brit recon driving 2.mp3',
+                            //     ],
+                            //     shooting: [
+                            //         'brit recon shooting.mp3',
+                            //     ]
+                            // },
+                            britLightTank: {
+                                name: '英军四联装轻型坦克',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit tetrach driving.mp3',
+                                    'brit tetrach driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'brit tetrach shooting.mp3',
+                                ]
+                            },
+                            britMediumTank: {
+                                name: '英军克伦威尔中型坦克',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit cromwell driving.mp3',
+                                    'brit cromwell driving 2.mp3',
+                                ],
+                                shooting: [
+                                    'brit cromwell shooting.mp3',
+                                ]
+                            },
+                            britFireflyTank: {
+                                name: '英军萤火虫重型坦克',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit firefly driving.mp3',
+                                ],
+                                shooting: [
+                                    'brit firefly shooting.mp3',
+                                ]
+                            },
+                            britChurchillTank: {
+                                name: '英军丘吉尔重型坦克',
+                                icons: ['british'],
+                                sounds: [
+                                    'brit churchill driving.mp3',
+                                    'brit churchill driving 2.mp3',
+                                    'brit churchill driving 3.mp3',
+                                ],
+                                shooting: [
+                                    'brit churchill shooting.mp3',
+                                ]
+                            },
+
+                            br4: {name:'break'},
+                            br5: {name:'break'},
+                            br6: {name:'break'},
+
+                            forRyan: {
+                                name: '英军克雷格威尔37',
+                                icons: ['british'],
+                                sounds: [],
+                                shooting: [
+                                    'brit craigwell 37.mp3',
+                                ]
+                            },
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="resultModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 id="resultTitle" class="modal-title fs-5" id="staticBackdropLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+            </div>
+            <div id="resultContent" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui container" style="padding-top:3%;padding-bottom:3%;color:darkgray;text-align:center">
+    <div style="margin-bottom: 15px;">
+        <strong>原项目:</strong> <a target="_blank"
+            href="https://github.com/mattwright324/hll-sound-guide">mattwright324/hll-sound-guide</a>
+        <br>
+        <strong>汉化来自:</strong> 东德消防-源寻芳
+        <br>
+        <strong>人间地狱战术技术讨论:</strong> QQ 1552308626
+    </div>
+    <div>
+        chenjiahui-offical | 2025 | <a href="/">主页</a> | <a target="_blank"
+            href="https://github.com/chenjiahui-offical">github</a>
+        | <a target="_blank" href="https://github.com/chenjiahui-offical/hll-sound-guide#">hll-sound-guide</a>
+    </div>
+</div>
+</body>
+</html>

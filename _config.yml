@@ -1,6 +1,6 @@
 encoding    : UTF-8
 exclude     : [.idea]
-github      : https://github.com/mattwright324/
+github      : https://github.com/chenjiahui-offical/
 
 # make available on local network to test on other devices
 host        : 0.0.0.0
