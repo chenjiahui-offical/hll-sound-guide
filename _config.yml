@@ -4,3 +4,5 @@ github      : https://github.com/chenjiahui-offical/
 
 # make available on local network to test on other devices
 host        : 0.0.0.0
+exclude:
+  - "vendor/"
